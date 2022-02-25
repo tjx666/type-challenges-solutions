@@ -18,7 +18,7 @@
 
 /* _____________ Your Code Here _____________ */
 type Shift<T extends readonly any[]> = T extends [infer Head, ...infer Rest] ? Rest : never;
-// 基操了
+// 考察数组类型解构
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils';

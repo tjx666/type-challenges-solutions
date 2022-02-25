@@ -36,7 +36,7 @@ type RequiredByKeys<T, K extends keyof any = keyof T> = {
 
 /*
 先做 2757 题
-想比 2757 题，这道题还需要解决如何将一个类型去掉 null，可以利用 infer
+想比 2757 题，这道题还需要解决如何将一个类型去掉 undefined，可以利用 infer
  */
 
 /* _____________ Test Cases _____________ */

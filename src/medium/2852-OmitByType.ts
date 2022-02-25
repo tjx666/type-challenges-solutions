@@ -22,10 +22,11 @@
 */
 
 /* _____________ Your Code Here _____________ */
-
 type OmitByType<T, U> = {
     [K in keyof T as T[K] extends U ? never : K]: T[K];
 };
+
+// 知识点：可以使用 as 过滤 key 类型
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils';

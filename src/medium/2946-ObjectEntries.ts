@@ -22,8 +22,8 @@
 */
 
 /* _____________ Your Code Here _____________ */
-
 type ObjectEntries<T, U = keyof T> = U extends keyof T ? [U, Exclude<T[U], undefined>] : never;
+// 考察联合类型的分配率
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils';
