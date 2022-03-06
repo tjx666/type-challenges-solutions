@@ -17,7 +17,7 @@
 */
 
 /* _____________ Your Code Here _____________ */
-type Shift<T extends readonly any[]> = T extends [infer Head, ...infer Rest] ? Rest : never;
+type Shift<T extends readonly any[]> = T extends [infer Head, ...infer Rest] ? Rest : [];
 // 考察数组类型解构
 
 /* _____________ Test Cases _____________ */
@@ -26,6 +26,7 @@ import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils';
 type cases = [
     Expect<Equal<Shift<[3, 2, 1]>, [2, 1]>>,
     Expect<Equal<Shift<['a', 'b', 'c', 'd']>, ['b', 'c', 'd']>>,
+    Expect<Equal<Shift<[]>, []>>,
 ];
 
 /* _____________ Further Steps _____________ */
