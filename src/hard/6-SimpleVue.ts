@@ -51,7 +51,7 @@ type Computed<T extends Record<string, Function>> = {
 
 declare function SimpleVue<D, C extends Record<string, Function>, M>(
     options: {
-        data: () => D;
+        data: (this: {}) => D;
         computed?: C & ThisType<D & C>;
         methods?: M & ThisType<D & Computed<C> & M>;
     } & ThisType<null>,
@@ -64,12 +64,12 @@ import { Equal, Expect } from '@type-challenges/utils';
 
 SimpleVue({
     data() {
-        // // @ts-expect-error
-        // this.firstname
-        // // @ts-expect-error
-        // this.getRandom()
-        // // @ts-expect-error
-        // this.data()
+        // @ts-expect-error
+        this.firstname;
+        // @ts-expect-error
+        this.getRandom();
+        // @ts-expect-error
+        this.data();
 
         return {
             firstname: 'Type',
