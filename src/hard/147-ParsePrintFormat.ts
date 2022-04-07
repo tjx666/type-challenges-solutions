@@ -42,30 +42,14 @@ type ControlsMap = {
     p: 'pointer';
 };
 
-type TrimBeforePercent<S extends string> = S extends `${infer First}${infer Rest}`
-    ? S extends `%${Rest}`
-        ? S
-        : TrimBeforePercent<Rest>
-    : '';
-
-type GetSecondChar<S extends string> = S extends `${infer First}${infer Second}${infer Rest}`
-    ? Second
-    : S extends `${infer First}${infer Second}`
-    ? Second
-    : '';
-
 type ParsePrintFormat<
     S extends string,
-    R extends string[] = [],
-    SS = TrimBeforePercent<S>,
-> = SS extends `%${infer Second}${infer Rest}`
-    ? GetSecondChar<SS> extends keyof ControlsMap
-        ? ParsePrintFormat<Rest, [...R, ControlsMap[GetSecondChar<SS>]]>
-        : ParsePrintFormat<Rest, R>
-    : R;
-
-type SS = TrimBeforePercent<'The result is %d.'>;
-type R = ParsePrintFormat<'The result is %%d.'>;
+    Arr extends string[] = [],
+> = S extends `${string}%${infer F}${infer Rest}`
+    ? F extends keyof ControlsMap
+        ? ParsePrintFormat<Rest, [...Arr, ControlsMap[F]]>
+        : ParsePrintFormat<Rest, Arr>
+    : Arr;
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect } from '@type-challenges/utils';
