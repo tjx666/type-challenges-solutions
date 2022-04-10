@@ -6,7 +6,7 @@
 
 - easy: ![easy progress](https://img.shields.io/badge/-13%2F13-green)
 - medium: ![medium progress](https://img.shields.io/badge/-63%2F65-green)
-- hard: ![hard progress](https://img.shields.io/badge/-1%2F33-green)
+- hard: ![hard progress](https://img.shields.io/badge/-12%2F33-green)
 
 跳过一些觉得没什么实际价值的题：
 

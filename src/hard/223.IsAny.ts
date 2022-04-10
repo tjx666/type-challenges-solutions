@@ -17,6 +17,7 @@
 type IsAny<T> = 0 extends (1 & T) ? true : false;
 // type IsAny<T> = [{}, T] extends [T, null] ? true : false;
 // type IsAny<T> = [T] extends [never] ? false : keyof any extends keyof T ? true: false
+// https://stackoverflow.com/questions/49927523/disallow-call-with-any/49928360#49928360
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect } from '@type-challenges/utils';
